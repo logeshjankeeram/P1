@@ -1,0 +1,168 @@
+/* General Body Styling */
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
+    /* Smooth background color change */
+}
+
+/* Shared Wrapper for Background and Content */
+.page-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background Styling */
+.page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    /* Blurs only the background */
+    z-index: -1;
+    transition: filter 0.5s ease;
+    /* Smooth background blur transition */
+}
+
+/* Landing Page Styling */
+.landing-page {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    /* Smooth fade-out transition for landing page */
+}
+
+.landing-page .page-background {
+    background: url('landing-background.jpg') no-repeat center center / cover;
+}
+
+.landing-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.landing-page p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #f1e7d3;
+    padding: 0 15px;
+}
+
+.landing-page button {
+    background-color: #282c34;
+    color: #ffda79;
+    font-size: 1.1em;
+    padding: 10px 25px;
+    border: 2px solid #ffda79;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.landing-page button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #ffda79;
+    color: #282c34;
+}
+
+/* Quote Page Styling */
+.quote-page {
+    display: none;
+    /* Hidden initially */
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    /* Smooth fade-in transition for quote page */
+}
+
+.quote-page .page-background {
+    background: url('quote-background.jpg') no-repeat center center / cover;
+}
+
+/* Quote Text Styling */
+#quote {
+    font-size: 2em;
+    color: #f1e7d3;
+    max-width: 90%;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-style: italic;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    /* Stronger shadow for text depth */
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    /* Semi-transparent dark background for better contrast */
+    border-radius: 15px;
+    /* Rounded corners for better aesthetics */
+}
+
+/* Darker Overlay for Background */
+.quote-page .page-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Dark overlay */
+    z-index: -1;
+    /* Behind the content but above the background */
+}
+
+/* Button Styling for Quote Page */
+#generateBtn {
+    background-color: #ffda79;
+    color: #282c34;
+    font-size: 1.2em;
+    padding: 15px 35px;
+    border: 2px solid #ffda79;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#generateBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    background-color: #282c34;
+    color: #ffda79;
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .landing-page h1 {
+        font-size: 2em;
+    }
+
+    .landing-page p {
+        font-size: 1em;
+    }
+
+    .quote-page #quote {
+        font-size: 1.5em;
+    }
+
+    .landing-page button,
+    #generateBtn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
